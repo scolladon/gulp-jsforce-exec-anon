@@ -23,12 +23,8 @@
     "through2": "^0.6.3"
   },
   "devDependencies": {
-    "espower-loader": "^0.10.0",
     "gulp": "^3.8.11",
-    "intelli-espower-loader": "^0.6.0",
-    "jsforce": "^1.7.1",
-    "mocha": "^2.1.0",
-    "power-assert": "^0.10.2"
+    "jsforce": "^1.7.1"
   },
   "repository": {
     "type": "git",
