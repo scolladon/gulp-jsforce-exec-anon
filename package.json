@@ -1,0 +1,37 @@
+{
+  "name": "gulp-jsforce-exec-anon",
+  "version": "1.0.0",
+  "description": "Execute anonymous using JSforce",
+  "main": "index.js",
+  "keywords": [
+    "salesforce",
+    "salesforce.com",
+    "sfdc",
+    "force.com",
+    "database.com",
+    "gulpplugin",
+    "execute anonymous"
+  ],
+  "files": [
+    "index.js"
+  ],
+  "author": "Sebastien Colladon <colladonsebastien@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gulp-util": "^3.0.3",
+    "jsforce": "^1.1.0",
+    "through2": "^0.6.3"
+  },
+  "devDependencies": {
+    "espower-loader": "^0.10.0",
+    "gulp": "^3.8.11",
+    "intelli-espower-loader": "^0.6.0",
+    "jsforce": "^1.5.0",
+    "mocha": "^2.1.0",
+    "power-assert": "^0.10.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ForceComDeveloper/gulp-jsforce-exec-anon.git"
+  }
+}
