@@ -10,6 +10,6 @@ gulp.task('execanon', function() {
     .pipe(execAnon({
       username: process.env.SF_USERNAME,
       password: process.env.SF_PASSWORD,
-      loginUrl: process.env.process.env.SF_SERVERURL
+      loginUrl: process.env.SF_SERVERURL
     }));
 });
