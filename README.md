@@ -26,12 +26,10 @@ $ npm install gulp gulp-jsforce-exec-anon --save-dev
 
 ```javascript
 var gulp = require('gulp');
-var zip = require('gulp-zip');
-var execAnon = require('gulp-jsforce-deploy');
+var execAnon = require('gulp-jsforce-exec-anon');
 
 gulp.task('exec-anon', function() {
-  gulp.src('./pkg/**', { base: "." })
-    .pipe(zip('pkg.zip'))
+  gulp.src('./script/*')
     .pipe(execAnon({
       username: process.env.SF_USERNAME,
       password: process.env.SF_PASSWORD,
