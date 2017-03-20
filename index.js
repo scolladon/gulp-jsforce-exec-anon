@@ -7,12 +7,6 @@ var PULGIN_NAME = 'gulp-jsforce-exec-anon';
 
 module.exports = function(options) {
   return through.obj(function(file, enc, callback) {
-    if (file.isNull()) {
-      return callback(null, file);
-    }
-    if (file.isStream()) {
-      return callback(new gutil.PluginError(PULGIN_NAME, 'Stream input is not supported'));
-    }
     
     var conn = new jsforce.Connection({
       loginUrl : options.loginUrl
