@@ -1,6 +1,6 @@
 {
   "name": "gulp-jsforce-exec-anon",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Execute anonymous using JSforce",
   "main": "index.js",
   "keywords": [
