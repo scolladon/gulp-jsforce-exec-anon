@@ -1,6 +1,6 @@
 {
   "name": "gulp-jsforce-exec-anon",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Execute anonymous using JSforce",
   "main": "index.js",
   "keywords": [
@@ -29,6 +29,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/scolladon/gulp-jsforce-exec-anon.git"
-  },
-  "license":"MIT"
+  }
 }
