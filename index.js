@@ -1,24 +1,25 @@
 'use strict';
-var gutil = require('gulp-util');
-var through = require('through2');
-var jsforce = require('jsforce');
+const gutil = require('gulp-util');
+const through = require('through2');
+const jsforce = require('jsforce');
+const path = require('path');
 
-var PULGIN_NAME = 'gulp-jsforce-exec-anon';
+const PULGIN_NAME = 'gulp-jsforce-exec-anon';
 
-module.exports = function(options) {
-  return through.obj(function(file, enc, callback) {
+module.exports = options =>{
+  return through.obj((file, enc, callback) => {
     
-    var conn = new jsforce.Connection({
+    const conn = new jsforce.Connection({
       loginUrl : options.loginUrl
     });
 
 
-    conn.login(options.username, options.password, function(error, userInfo){
+    conn.login(options.username, options.password, (error, userInfo) => {
       if (error) { return callback(new gutil.PluginError(PULGIN_NAME,error)); }
-      conn.tooling.executeAnonymous(file.contents, function(err, res) {
+      conn.tooling.executeAnonymous(file.contents, (err, res) => {
         if (err) { return callback(new gutil.PluginError(PULGIN_NAME,err)); }
         else if (!res.success) { return callback(new gutil.PluginError(PULGIN_NAME,res.compileProblem)); }
-        gutil.log(PULGIN_NAME, 'Execute Anonymous successful', gutil.colors.green(':)'))
+        gutil.log(PULGIN_NAME, path.basename(file.path) + ' successfuly executed anonymously ', gutil.colors.green(':)'))
         return callback(null,file);
       });
     });
