@@ -2,5 +2,5 @@ node_modules
 npm-debug.log
 yarn.lock
 /.yarnclean
-
+private.key
 /yarn-error.log

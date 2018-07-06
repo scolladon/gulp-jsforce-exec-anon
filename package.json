@@ -20,6 +20,8 @@
   "dependencies": {
     "gulp-util": "^3.0.3",
     "jsforce": "^1.7.1",
+    "jsonwebtoken": "^8.2.1",
+    "request": "^2.85.0",
     "through2": "^0.6.3"
   },
   "devDependencies": {
