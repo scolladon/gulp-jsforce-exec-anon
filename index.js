@@ -8,8 +8,15 @@ const gutil = require('gulp-util')
 
 const PLUGIN_NAME = 'gulp-jsforce-exec-anon';
 
+let conn = null;
+
 module.exports = options =>{
+  if(conn === null) {
+    // authent
+  }
+
   return through.obj((file, enc, cb) => {
+    
     jwt.getToken({
         iss: options.consumerKey,
         sub: options.username,
@@ -17,7 +24,7 @@ module.exports = options =>{
         privateKey: fs.readFileSync(options.privateKeyPath).toString('utf8')
     },(error,token) => {
       if(error){ return cb(new gutil.PluginError(PLUGIN_NAME,error)); }
-      const conn = new jsforce.Connection({
+      conn = new jsforce.Connection({
         instanceUrl : token.instance_url,
         accessToken : token.access_token
       });
