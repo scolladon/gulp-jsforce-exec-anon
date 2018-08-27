@@ -4,7 +4,8 @@ const gutil = require('gulp-util')
      ,jsforce = require('jsforce')
      ,path = require('path')
      ,fs = require('fs')
-     ,jwt = require("salesforce-jwt-bearer-token-flow")
+     ,jwt = require('salesforce-jwt-bearer-token-flow')
+     ,authentDelegate = require('sfdc-authent-delegate');
 
 const PLUGIN_NAME = 'gulp-jsforce-exec-anon';
 
@@ -12,7 +13,7 @@ let conn = null;
 
 module.exports = options =>{
   return through.obj((file, enc, cb) => {  
-    authenticate(options)
+    authentDelegate.getSession(options)
     .then(sfConn=> {return new Promise((resolve,reject)=>{
       sfConn.tooling.executeAnonymous(file.contents, (err, res) => {
         if(err)return reject(err)
@@ -29,37 +30,3 @@ module.exports = options =>{
     .then(()=> {return cb(null,file)});
   });
 };
-
-const authenticate = (options) => {
-  return new Promise((resolve,reject) => {
-    if(conn !== null) {
-      return resolve(conn);
-    }
-    
-    if(!!options.password) {
-      conn = new jsforce.Connection({
-      loginUrl : options.loginUrl
-      });
-      conn.login(options.username, options.password, (error, userInfo) => {
-        if (error) return reject(error)
-        return resolve(conn);
-      });
-    } else if(!!options.privateKeyPath) {
-      jwt.getToken({
-        iss: options.consumerKey,
-        sub: options.username,
-        aud: options.loginUrl,
-        privateKey: fs.readFileSync(options.privateKeyPath).toString('utf8')
-      },(error,token) => {
-        if(error)return reject(error)
-        conn = new jsforce.Connection({
-          instanceUrl : token.instance_url,
-          accessToken : token.access_token
-        });
-        return resolve(conn);
-      });
-    } else {
-      return reject('Authentication impossible')
-    }
-  })
-}
