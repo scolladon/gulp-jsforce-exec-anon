@@ -2,5 +2,7 @@ node_modules
 npm-debug.log
 yarn.lock
 /.yarnclean
-
+*.key
+*.cert
 /yarn-error.log
+script/
