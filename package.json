@@ -19,17 +19,14 @@
   "license": "MIT",
   "dependencies": {
     "gulp-util": "^3.0.3",
-    "jsforce": "^1.7.1",
-    "salesforce-jwt-bearer-token-flow": "^0.2.1",
-    "sfdc-authent-delegate": "^1.0.1",
+    "sfdc-authent-delegate": "^1.0.2",
     "through2": "^0.6.3"
-  },
-  "devDependencies": {
-    "gulp": "^3.8.11",
-    "jsforce": "^1.7.1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/scolladon/gulp-jsforce-exec-anon.git"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.0"
   }
 }

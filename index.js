@@ -1,10 +1,7 @@
 'use strict';
 const gutil = require('gulp-util')
      ,through = require('through2')
-     ,jsforce = require('jsforce')
      ,path = require('path')
-     ,fs = require('fs')
-     ,jwt = require('salesforce-jwt-bearer-token-flow')
      ,authentDelegate = require('sfdc-authent-delegate');
 
 const PLUGIN_NAME = 'gulp-jsforce-exec-anon';

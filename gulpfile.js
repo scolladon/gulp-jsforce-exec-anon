@@ -4,7 +4,7 @@ const gulp = require('gulp');
 const execAnon = require('./');
 
 gulp.task('exec-anon', () => {
-  gulp.src("./script/*")
+  return gulp.src("./script/*")
     .pipe(execAnon({
       username: process.env.SF_USERNAME,
       password: process.env.SF_PASSWORD,
